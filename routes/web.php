@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SendEmailController;
-
+use App\Http\Controllers\Auth\LoginRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +34,14 @@ Route::controller(LoginRegisterController::class)->group(function() {
 Route::get('/send-mail', [SendEmailController::class,'index'])->name('kirim-email');
 
 Route::post('/post-email', [SendEmailController::class, 'store'])->name('post-email');
+
+Route::get('/users', [UserController::class, 'index'])->name('user.index');
+
+Route::get('/users/update/{id}', [UserController::class, 'update'])->name('user.update');
+
+Route::put('/users/update/data{id}', [UserController::class, 'updateData'])->name('user.updateData');
+
+Route::post('users/delete/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+
+Route::resource('gallery', GalleryController::class);
+
