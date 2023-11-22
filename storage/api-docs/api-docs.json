@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API documentation Gallery",
+        "description": "API doc gallery OpenAPI/Swagger",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "yudhisitirarb727@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "0.0.1"
+    },
+    "paths": {
+        "/api/gallery": {
+            "get": {
+                "tags": [
+                    "Get Picture For Gallery"
+                ],
+                "summary": "Menampilkan picture Gallery",
+                "description": "Menampilkan picture Gallery",
+                "operationId": "gallery",
+                "responses": {
+                    "default": {
+                        "description": "Success Menampilkan picture"
+                    }
+                }
+            }
+        },
+        "/api/gallery-store": {
+            "post": {
+                "tags": [
+                    "Store Gallery"
+                ],
+                "summary": "Add Picture In Gallery",
+                "operationId": "47d5960b4dc49e04063ccd217734f1e8",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "description": "Judul gallery",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Deskripsi Gallery",
+                                        "type": "string"
+                                    },
+                                    "picture": {
+                                        "description": "Image file Gallery",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success menambahkan data"
+                    },
+                    "404": {
+                        "description": "Error"
+                    }
+                }
+            }
+        }
+    }
+}
